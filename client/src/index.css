@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(210, 40%, 96%);
+  --foreground: hsl(222.2, 84%, 4.9%);
+  --card: hsl(0, 0%, 100%, 0.7);
+  --card-foreground: hsl(222.2, 84%, 4.9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222.2, 84%, 4.9%);
+  --primary: hsl(158, 70%, 20%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(28, 80%, 45%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --muted: hsl(210, 40%, 90%);
+  --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+  --accent: hsl(199, 89%, 48%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(214.3, 31.8%, 91.4%);
+  --input: hsl(214.3, 31.8%, 91.4%);
+  --ring: hsl(158, 70%, 20%);
+  --chart-1: hsl(158, 70%, 20%);
+  --chart-2: hsl(28, 80%, 45%);
+  --chart-3: hsl(199, 89%, 48%);
+  --chart-4: hsl(0, 84.2%, 60.2%);
+  --chart-5: hsl(262.1, 83.3%, 57.8%);
+  --sidebar: hsl(0, 0%, 100%, 0.7);
+  --sidebar-foreground: hsl(222.2, 84%, 4.9%);
+  --sidebar-primary: hsl(158, 70%, 20%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(210, 40%, 90%);
+  --sidebar-accent-foreground: hsl(158, 70%, 20%);
+  --sidebar-border: hsl(214.3, 31.8%, 91.4%);
+  --sidebar-ring: hsl(158, 70%, 20%);
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(222.2, 84%, 4.9%);
+  --foreground: hsl(210, 40%, 98%);
+  --card: hsl(222.2, 84%, 4.9%, 0.7);
+  --card-foreground: hsl(210, 40%, 98%);
+  --popover: hsl(222.2, 84%, 4.9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(158, 60%, 30%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(28, 70%, 40%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217.2, 32.6%, 17.5%);
+  --muted-foreground: hsl(215, 20.2%, 65.1%);
+  --accent: hsl(199, 80%, 40%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217.2, 32.6%, 17.5%);
+  --input: hsl(217.2, 32.6%, 17.5%);
+  --ring: hsl(158, 60%, 30%);
+  --chart-1: hsl(158, 60%, 30%);
+  --chart-2: hsl(28, 70%, 40%);
+  --chart-3: hsl(199, 80%, 40%);
+  --chart-4: hsl(0, 62.8%, 30.6%);
+  --chart-5: hsl(262.1, 83.3%, 57.8%);
+  --sidebar: hsl(222.2, 84%, 4.9%, 0.7);
+  --sidebar-foreground: hsl(210, 40%, 98%);
+  --sidebar-primary: hsl(158, 60%, 30%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(217.2, 32.6%, 17.5%);
+  --sidebar-accent-foreground: hsl(158, 60%, 30%);
+  --sidebar-border: hsl(217.2, 32.6%, 17.5%);
+  --sidebar-ring: hsl(158, 60%, 30%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground min-h-screen;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(22, 163, 74, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(217, 119, 6, 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md border border-white/20;
+    background: var(--card);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-nav {
+    @apply backdrop-blur-2xl border-2;
+    background: rgba(255, 255, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.2) 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dark .glass-nav {
+    background: rgba(15, 23, 42, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass-nav::before {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  .glass-toast {
+    @apply backdrop-blur-2xl relative overflow-hidden;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.3);
+  }
+
+  .glass-toast::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.2) 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dark .glass-toast {
+    background: rgba(15, 23, 42, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass-toast::before {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  .glass-toast-destructive {
+    @apply backdrop-blur-2xl relative overflow-hidden;
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    box-shadow: 
+      0 8px 32px rgba(239, 68, 68, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.1);
+  }
+
+  .glass-toast-destructive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      rgba(239, 68, 68, 0.3) 0%,
+      rgba(239, 68, 68, 0.1) 50%,
+      rgba(239, 68, 68, 0.2) 100%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dark .glass-toast-destructive {
+    background: rgba(127, 29, 29, 0.3);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .dark .glass-toast-destructive::before {
+    background: linear-gradient(135deg, 
+      rgba(239, 68, 68, 0.2) 0%,
+      rgba(239, 68, 68, 0.05) 50%,
+      rgba(239, 68, 68, 0.1) 100%);
+  }
+
+  .prayer-checkbox {
+    @apply appearance-none w-6 h-6 border-2 border-primary rounded-full relative cursor-pointer transition-all duration-300 hover:scale-105;
+  }
+
+  .prayer-checkbox:checked {
+    @apply bg-primary scale-110;
+  }
+
+  .prayer-checkbox:checked::after {
+    content: "✓";
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-primary-foreground text-sm font-bold;
+  }
+
+  .progress-ring {
+    @apply -rotate-90;
+  }
+
+  .progress-ring-circle {
+    @apply transition-all ease-in-out;
+    transition-duration: 600ms;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

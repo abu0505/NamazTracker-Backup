@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "node",
+      "args": ["/path/to/chrome-devtools-mcp-server/build/index.js"],
+      "env": {
+        "CHROME_HOST": "localhost",
+        "CHROME_PORT": "9222"
+      }
+    }
+  }
+}
