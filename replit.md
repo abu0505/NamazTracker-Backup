@@ -90,7 +90,7 @@ Preferred communication style: Simple, everyday language.
 - PostgreSQL as the primary database via **Supabase** (serverless Postgres with transaction pooler)
 - Drizzle ORM for type-safe database operations and schema management
 - - Database connection managed via DATABASE_URL secret (stored in Replit Secrets)
-- Connection string: `postgresql://postgres.zckrejjslfpmgiiafwbv:Abuturab@3110@aws-1-ap-south-1.pooler.supabase.com:6543/postgres`
+- Connection string: **IMPORTANT** ASK USER FIRST FOR THE CONNECTION STRING
 - **IMPORTANT:** This project uses Supabase, NOT Replit's PostgreSQL. Always ensure DATABASE_URL points to Supabase.
 
 **Schema Design**
